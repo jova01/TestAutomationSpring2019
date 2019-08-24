@@ -25,10 +25,10 @@ public class ExcelDemo {
 
     @BeforeMethod
     public void setUp() throws IOException {
-        inputStream=new FileInputStream(path);
-        workbook= WorkbookFactory.create(inputStream);
-        fileOutputStream=new FileOutputStream(path);
-        sheet=workbook.getSheet("Cities");
+        inputStream = new FileInputStream(path);
+        workbook = WorkbookFactory.create(inputStream);
+        fileOutputStream = new FileOutputStream(path);
+        sheet = workbook.getSheet("Countries");
 
     }
 
@@ -79,6 +79,7 @@ public class ExcelDemo {
 
     @AfterMethod
     public void tearDown() throws IOException {
+        workbook.write(fileOutputStream);
         workbook.close();
         inputStream.close();
     }
